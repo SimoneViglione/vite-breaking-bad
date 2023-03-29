@@ -21,14 +21,15 @@ export default {
 
 <template>
     <div class="outer-container">
-        <div class="inner-container">
-            <Cards v-for="(card, index) in store.cardList"  
+        <div class="inner-container d-flex">
+            <div class="card-wrapper" v-for="(card, index) in store.cardList" :key="index">
+                <Cards       
+                    :image="card.card_images[0].image_url"
+                    :name="card.name"
+                    :type="card.type"
+                />
+            </div>
             
-            :image="card.card_images.image_url"
-            :name="card.name"
-            :type="card.type"
-            :key="index"
-            />
 
         </div> 
     </div>
@@ -43,8 +44,18 @@ export default {
 }
 
 .inner-container {
-    margin: 20px;
+
+    padding: 1rem;
+    width: 100%;
     background-color: white;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.card-wrapper {
+    width: calc((100% / 5) - 1rem);
+    height: 200px;
 }
 
 
