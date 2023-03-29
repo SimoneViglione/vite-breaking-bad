@@ -24,7 +24,7 @@ export default {
 
 <style scoped lang="scss">
     .yugioh-card {
-        width: 80%;
+        width: min-content;
         height: 100%;
         font-family: 'Merriweather', serif;
         flex-direction: column;
@@ -41,12 +41,20 @@ export default {
 
         img {
             height: 200px;
+            width: 180px;
         }
     }
 
     .card-text {
         text-align: center;
         margin-top: 1rem;
+        width: 70%;
+        color: white;
+
+        h5 {
+            font-size: 10px;
+            border: black 1px;
+        }
         
 
         h6 {
