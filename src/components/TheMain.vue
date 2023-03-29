@@ -26,7 +26,7 @@ export default {
                 <Cards       
                     :image="card.card_images[0].image_url"
                     :name="card.name"
-                    :type="card.type"
+                    :type="card.archetype"
                 />
             </div>
             
@@ -55,7 +55,7 @@ export default {
 
 .card-wrapper {
     width: calc((100% / 5) - 1rem);
-    height: 200px;
+    height: 300px;
 }
 
 
