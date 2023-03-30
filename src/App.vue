@@ -32,9 +32,12 @@ methods: {
     .then(response => {
       this.store.cardList = response.data.data;
       this.store.loading = false;
-    })
-  },
+    }),
 
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(response => {
+      this.store.archetypes = response.data.data;
+    });
+  }
 },
 created() {
     this.getCards();

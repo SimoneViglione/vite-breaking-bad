@@ -27,6 +27,7 @@ export default {
         <div class="d-flex">
             <h4>Filtra per Archetipo</h4>
             <select id="filter" @change="$emit ('doFilter')" v-model="store.filter">
+                <option v-for="archetype in store.archetypes" :value="archetype.archetype_name" :key="archetype.archetype_name">{{ archetype.archetype_name }}</option>
                 <option value="Alien">Alien</option>
                 <option value="Mermail">Mermail</option>
                 <option value="Unchained">Unchained</option>
@@ -93,5 +94,6 @@ export default {
     width: calc((100% / 5) - 5rem);
     height: 300px;
 }
+
 
 </style>
