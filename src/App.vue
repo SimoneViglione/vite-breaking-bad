@@ -33,7 +33,8 @@ methods: {
       this.store.cardList = response.data.data;
       this.store.loading = false;
     })
-  }
+  },
+
 },
 created() {
     this.getCards();

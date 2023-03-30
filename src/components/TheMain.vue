@@ -3,6 +3,7 @@
 import { store } from '../store.js';
 
 import Cards from './Cards.vue';
+import CardsCounter from './CardsCounter.vue';
 
 export default {
     name: 'TheMain',
@@ -14,7 +15,7 @@ export default {
         }
     },
     components: {
-        Cards    
+        Cards, CardsCounter    
     }
 }
 
@@ -27,15 +28,16 @@ export default {
             <h4>Filtra per Archetipo</h4>
             <select id="filter" @change="$emit ('doFilter')" v-model="store.filter">
                 <option value="Alien">Alien</option>
-                <option value="Noble-Knight">Noble Knight</option>
-                <option value="Abyss-Actor">Abyss Actor</option>
-                <option value="Mermailr">Mermail</option>
+                <option value="Mermail">Mermail</option>
+                <option value="Unchained">Unchained</option>
+                <option value="Rokket">Rokket</option>
+                <option value="@Ignister">@Ignister</option>
             </select>
         </div>
 
         <div class="inner-container d-flex">
             <div class="counter">
-                <h5>Carte trovate {{  }} </h5>
+                <CardsCounter />
             </div>
             <div class="card-wrapper" v-for="(card, index) in store.cardList" :key="index">
                 <Cards       
@@ -90,18 +92,6 @@ export default {
     margin: 2rem;
     width: calc((100% / 5) - 5rem);
     height: 300px;
-}
-
-.counter {
-    background-color: black;
-    color: white;
-    height: 50px;
-    width: 100%;
-
-    h5 {
-        margin-top: 10px;
-        margin-left: 10px;
-    }
 }
 
 </style>
