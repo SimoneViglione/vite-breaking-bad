@@ -9,7 +9,8 @@ export default {
 
     data() {
         return {
-            store
+            store,
+            
         }
     },
     components: {
@@ -21,8 +22,21 @@ export default {
 
 <template>
     <div class="outer-container">
+
+        <div class="d-flex">
+            <h4>Filtra per Archetipo</h4>
+            <select id="filter" @change="$emit ('doFilter')" v-model="store.filter">
+                <option value="Alien">Alien</option>
+                <option value="Noble-Knight">Noble Knight</option>
+                <option value="Abyss-Actor">Abyss Actor</option>
+                <option value="Mermailr">Mermail</option>
+            </select>
+        </div>
+
         <div class="inner-container d-flex">
-            
+            <div class="counter">
+                <h5>Carte trovate {{  }} </h5>
+            </div>
             <div class="card-wrapper" v-for="(card, index) in store.cardList" :key="index">
                 <Cards       
                     :image="card.card_images[0].image_url"
@@ -42,7 +56,23 @@ export default {
     width: 100%;
     height: 100%;
     padding: 100px 0;
-    background-color: rgb(1, 1, 108);
+    background: #9b59b6;
+    background: 
+    radial-gradient(
+    at center, #3498db, #30087b
+    );
+
+        select {
+            padding: 5px 10px;
+            margin-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: white;
+            margin-left: 160px;
+        }
+
 }
 
 .inner-container {
@@ -62,6 +92,16 @@ export default {
     height: 300px;
 }
 
+.counter {
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100%;
 
+    h5 {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+}
 
 </style>

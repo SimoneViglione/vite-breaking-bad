@@ -34,16 +34,13 @@
         align-items: center;
 
         .gradient {
-
-            background-image: linear-gradient(45deg, #78cef3, #001d7d);
-            background-clip: text;
             align-items: center;
 
             i {
                 animation: spin 2s linear infinite;
                 font-size: 2rem;
                 margin-right: 1rem;
-                -webkit-text-fill-color: transparent;
+                color: rgb(100, 2, 213);
                 
             }
 

@@ -13,15 +13,30 @@
 
   data() {
     return {
-      store
+      store,
+      
   }
 },
-created() {
-  axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes')
+methods: {
+  getCards() {
+
+    console.log(store.filter)
+
+    let urlApi = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=100&offset=0';  
+
+    if (store.filter.length > 0) {
+      urlApi = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.filter}&num=100&offset=0`
+    }
+
+    axios.get(urlApi)
     .then(response => {
       this.store.cardList = response.data.data;
       this.store.loading = false;
     })
+  }
+},
+created() {
+    this.getCards();
   }
 }
 </script>
@@ -32,7 +47,7 @@ created() {
 
   <header> <TheHeader /> </header>
 
-  <main> <TheMain /> </main>
+  <main> <TheMain @doFilter="getCards" /> </main>
 </template>
 
 <style lang="scss">
